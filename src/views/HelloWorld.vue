@@ -1,7 +1,12 @@
 <template>
   <div class="hello">
 
-    <InputBlock monAttribut="YOLO"></InputBlock>
+    <InputBlock monAttribut="YOLO">
+      <h1 slot="header">Head</h1>
+      <p>kdsjlksdjlkdfjlksdjdsfjklsd</p>
+      <aside slot="footer">Foot</aside>
+      <aside slot="poney">Hiiii</aside>
+    </InputBlock>
 
     <h1>{{ msg }}</h1>
     <p>
