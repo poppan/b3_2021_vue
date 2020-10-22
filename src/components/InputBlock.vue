@@ -1,8 +1,12 @@
 <template>
+
     <!-- en vue 2.x on n'a qu'un element racine dans un template -->
-    <form class="passwordForm">
+    <form class="passwordForm" @submit.prevent.stop="faitProut"> <!-- preventDefault() && stopPropagation()-->
         <label for="passwordForm__input">
             mon label trop bi1
+            {{monAttribut}}
+            {{maVariableQuiReprendMonAttribut}}
+            {{avecProut}}
         </label>
         <input
                 name="passwordForm__input"
@@ -13,6 +17,7 @@
         <span class="passwordForm__error_message">
             pas de message
         </span>
+        <button>fait Prout</button>
     </form>
 <!--           Convention BEM -->
 <!--            Block__Element&#45;&#45;Modifier
@@ -36,6 +41,11 @@
             number.toString() // une methode est une instance de Function-->
 
 
+
+<!--    SUBMIT (event)-->
+<!--    empecher l'evenement par defaut => preventDefault()-->
+<!--    quand SUBMIT alors preventDefault()-->
+
     <!--    en vue 3.x on peut en avoir plusieurs-->
 </template>
 
@@ -55,13 +65,28 @@ export default {
   // data = données
   // manipuler les données
   // MVC / MVVM / MVW
-  data : function (){
+  data (){
     return {
-
+       maVariableQuiReprendMonAttribut : ' DATA INIT '
     }
   },
-  // computed,
+  // traite les fonctions d'affichage des données
+/*
+  1000 => 1000,00
+  1 000 => 1000,00
+  1,000 => 1,00
+*/
+  computed: {
+    avecProut: function(){
+      return this.maVariableQuiReprendMonAttribut + " COMPUTED "
+    }
+  },
+  // *lifecycle*
   methods : {
+    faitProut(){
+      // this.monAttribut += " PROUT1 "
+      this.maVariableQuiReprendMonAttribut += " FAIT PROUT "
+    },
     // function *classique*
     // - dans la fct classique le *this* est le contexte d'appel'
     // - Kevin né en vendée vit a paris

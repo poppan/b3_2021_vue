@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
 
-    <InputBlock></InputBlock>
+    <InputBlock monAttribut="YOLO"></InputBlock>
 
     <h1>{{ msg }}</h1>
     <p>
