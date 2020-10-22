@@ -1,9 +1,24 @@
-# test_test
-test truc
-*penser* a manger des saucisses :
+# b3_2021_vue
 
-__prio truc__
+## Project setup
+```
+npm install
+```
 
-## machin
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
 
-####sfs  sfsdffs
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
