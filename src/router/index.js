@@ -11,6 +11,17 @@ const routes = [
     components: {
       default : () => import(/* webpackChunkName: "home" */ '../views/HelloWorld.vue'),
     }
+  },
+  {
+    path: '/user/:user_id/action/:action',
+    name: 'user',
+    // component: Home
+    components: {
+      default : () => import(/* webpackChunkName: "home" */ '../views/HelloWorld.vue'),
+    },
+    props:{
+      saucisse : 'toulouse'
+    }
   }
 ]
 
