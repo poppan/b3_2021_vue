@@ -1,5 +1,21 @@
 <template>
+
+
+
   <div class="hello">
+    <hr/>
+    VUEX $store : {{ $store.state.prenom }} - {{ $store.state.nom }}
+    <hr/>
+    VUEX mapState: {{ prenom }} - {{ nom }}
+    <hr/>
+    Change prenom avec methode locale qui appelle l'action
+    <button @click="callStoreActionChangePrenom({prenom:'poney', nom: 'club'})"> change prenom </button>
+
+    <hr/>
+    Change prenom avec mapActions
+    <button @click="updateNomPrenom({prenom:'poney', nom: 'club'})"> change prenom </button>
+
+    <hr/>
 
     <InputBlock monAttribut="YOLO">
       <h1 slot="header">Head</h1>
@@ -43,6 +59,8 @@
 
 import InputBlock from "@/components/InputBlock"
 
+import { mapState,mapActions } from 'vuex'
+
 export default {
   name: 'HelloWorld',
   components : {
@@ -50,7 +68,23 @@ export default {
   },
   props: {
     msg: String
+  },
+  computed : {
+    ...mapState([
+      'prenom',
+      'nom'
+    ])
+  },
+  methods : {
+    ...mapActions([
+        'updateNomPrenom'
+    ]),
+
+    callStoreActionChangePrenom(payload){
+      this.$store.dispatch('updateNomPrenom', payload)
+    }
   }
+
 }
 </script>
 
