@@ -1,29 +1,31 @@
 <template>
   <div id="app">
-    <header>
-      <img alt="Vue logo" src="./assets/logo.png">
-      <nav>
-        <router-link to="/">Home to="/" </router-link> |<br/>
-
-          <router-link v-bind:to="{path: '/'}">Home v-bind:to="{path: '/'}"</router-link> |<br/>
-          <router-link :to="'/'">Home :to="'/'"</router-link> |<br/>
-
-        <router-link v-bind:to="{name: 'home'}">Home v-bind:to="{name: 'home'}"</router-link> |<br/>
-        <router-link :to="{name: 'home', params: {paramNonTraite : 'prout'}}">Home v-bind:to="{name: 'home', params: {paramNonTraite : 'prout'}}"</router-link> |<br/>
+    <header class="container-fluid">
+<!--      <img alt="Vue logo" src="./assets/logo.png">-->
+      <nav class="nav">
+        <router-link class="nav-link" to="/">Home to="/" </router-link> |<br/>
+        <router-link class="nav-link" :to="'/'">Home :to="'/'"</router-link> |<br/>
+        <router-link class="nav-link" v-bind:to="{path: '/'}">Home v-bind:to="{path: '/'}"</router-link> |<br/>
 
 
+        <router-link class="nav-link" v-bind:to="{name: 'Home'}">Home v-bind:to="{name: 'Home'}"</router-link> |<br/>
+        <router-link class="nav-link" :to="{name: 'Home', params: {saucisse : 'Saucisse en param'}}">Home v-bind:to="{name: 'Home', params: {saucisse : 'Saucisse en param'}}"</router-link> |<br/>
 
-        <router-link to="/user">user</router-link> |
-        <router-link to="/user/monUserId1">user detail </router-link> |
-        <router-link to="/user/monUserId2/action/monActionDeUser">user detail action</router-link> |
+
+
+        <router-link class="nav-link" to="/user">user</router-link> |
+        <router-link class="nav-link" to="/user/monUserId1">user detail </router-link> |
+        <router-link class="nav-link" to="/user/monUserId2/action/monActionDeUser">user detail action</router-link> |
       </nav>
     </header>
 
-    <router-view/> <!-- name="default" -->
-    <router-view name="main"/>
-    <router-view name="aside"/>
+    <div class="container content">
+      <router-view/> <!-- name="default" -->
+      <router-view name="main"/>
+      <router-view name="aside"/>
+    </div>
 
-  <footer>
+  <footer class="container-fluid">
     footer de la win
   </footer>
   </div>
@@ -50,6 +52,16 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  /*margin-top: 60px;*/
+
+  > header{
+    background: #42b983;
+  }
+  > .content{
+    background: darkgray;
+  }
+  > footer{
+    background: bisque;
+  }
 }
 </style>

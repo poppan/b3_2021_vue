@@ -6,20 +6,21 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'home',
+    name: 'Home',
     // component: Home
     components: {
       default: () => import(/* webpackChunkName: "home" */ '../views/Home.vue'),
     },
-    props: true
+    props :route => ({saucisse: `plop ${route.params.saucisse}`})
   },
   {
     path: '/user',
-    name: 'client',
+    name: 'User',
     // component: Home
     components: {
       default: () => import(/* webpackChunkName: "home" */ '../views/User.vue'),
-    }
+    },
+    props: true
   },
   {
     // utilisation de pattern pour affectation de params, i.E /user/25 => $route.params.user = 25
@@ -54,7 +55,7 @@ const routes = [
           // la ca repond si j'appelle http://localhost:8080/user/xxxx
 
           path: '', // pas de suite, donc fin de l'[A6]  = lyon
-          name: 'userdetail',
+          name: 'UserDetail',
           components: {
             default: () => import(/* webpackChunkName: "home" */ '../views/User/UserDetail.vue'),
           },
@@ -66,7 +67,7 @@ const routes = [
         {
           // la ca repond si j'appelle http://localhost:8080/user/xxxx/action/yyy
           path: 'action/:action',  // ensuite emprunter l'[A7] = Marseille
-          name: 'userdetailaction',
+          name: 'UserDetailAction',
           components: {
             default: () => import(/* webpackChunkName: "home" */ '../views/User/UserDetailAction.vue'),
           },

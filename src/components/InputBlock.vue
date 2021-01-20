@@ -2,69 +2,67 @@
 
     <!-- en vue 2.x on n'a qu'un element racine dans un template -->
     <form class="passwordForm" @submit.prevent.stop="faitProut"> <!-- preventDefault() && stopPropagation()-->
-<!--        liste du tablo-->
-        <ul>
-            <li v-for="(elt, idx) in monTablo" v-bind:key="idx">{{elt}}</li>
-        </ul>
-<!--        liste des props de l'objet-->
-        <ul>
-            <li v-for="(value, key) in monObjet" v-bind:key="key">{{key}} : {{value}}</li>
-        </ul>
+        <div class="form-group">
+    <!--        liste du tablo-->
+            <ul class="list-group">
+                <li class="list-group-item" v-for="(elt, idx) in monTablo" v-bind:key="idx">{{elt}}</li>
+            </ul>
+    <!--        liste des props de l'objet-->
+            <ul class="list-group">
+                <li class="list-group-item" v-for="(value, key) in monObjet" v-bind:key="key">{{key}} : {{value}}</li>
+            </ul>
 
-        <!--        liste des props de l'objet-->
-        <dl>
-            <div v-for="(value, key) in monObjet" :key="key">
-                <dt>{{key}}</dt>
-                <dd>{{value}}</dd>
-            </div>
-        </dl>
-
-
-<!--        prend le contenu declaré dans le composant parent pour ce tag-->
-        <slot name="header"></slot>
-        <slot></slot>
-        <slot name="footer"></slot>
-        <slot name="poney"></slot>
+            <!--        liste des props de l'objet-->
+            <dl>
+                <div v-for="(value, key) in monObjet" :key="key">
+                    <dt>{{key}}</dt>
+                    <dd>{{value}}</dd>
+                </div>
+            </dl>
 
 
+    <!--        prend le contenu declaré dans le composant parent pour ce tag-->
+            <slot name="header"></slot>
+            <slot></slot>
+            <slot name="footer"></slot>
+            <slot name="poney"></slot>
 
+            Shorthand/raccourci pour v-on: => @
+            Shorthand/raccourci pour v-bind: => :
 
+            <label for="passwordForm__input">
+                mon label trop bi1
+                {{monAttribut}}
+                {{maVariableQuiReprendMonAttribut}}
+                {{avecProut}}
+            </label>
 
-        Shorthand/raccourci pour v-on: => @
-        Shorthand/raccourci pour v-bind: => :
+            <input
+                    name="passwordForm__input"
+                    placeholder="poneyclubdu22"
+                    class="form-control"
+                    v-bind:class="{'passwordForm__input--error' : is_error}"
+                    v-model="maVariableQuiReprendMonAttribut"
+            />
 
-        <label for="passwordForm__input">
-            mon label trop bi1
-            {{monAttribut}}
-            {{maVariableQuiReprendMonAttribut}}
-            {{avecProut}}
-        </label>
+            <small class="form-text text-muted">
+                {{maVariableFaitPlusDe5Chars ? 'ca va c assez long' : 'trop court'}}
+            </small>
 
-        <input
-                name="passwordForm__input"
-                placeholder="poneyclubdu22"
-                class = "toto"
-                v-bind:class="{'passwordForm__input--error' : is_error}"
-                v-model="maVariableQuiReprendMonAttribut"
-        />
-
-        <span>
-            {{maVariableFaitPlusDe5Chars ? 'ca va c assez long' : 'trop court'}}
-        </span>
-
-        <span v-if="maVariableFaitPlusDe5Chars">
-            trop court
-        </span>
-        <span v-else>
-            ca va c assez long
-        </span>
-        <span v-if="monAttribut == null || monAttribut == ''">
-            vide
-        </span>
-        <span class="passwordForm__error_message">
-            pas de message
-        </span>
-        <button>fait Prout</button>
+            <small class="form-text text-muted" v-if="maVariableFaitPlusDe5Chars">
+                trop court
+            </small>
+            <small class="form-text text-muted" v-else>
+                ca va c assez long
+            </small>
+            <small class="form-text text-muted" v-if="monAttribut == null || monAttribut == ''">
+                vide
+            </small>
+            <small class="form-text text-muted">
+                pas de message
+            </small>
+            <button type="submit" class="btn btn-primary">fait Prout</button>
+        </div>
     </form>
     <!--           Convention BEM -->
     <!--            Block__Element&#45;&#45;Modifier
