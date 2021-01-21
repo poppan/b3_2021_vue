@@ -5,8 +5,8 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 const store = new Vuex.Store({
   state: { // data
-    prenom: "toto",
-    nom: "yolo"
+    prenom: "mon prenom",
+    nom: "mon nom"
   },
   mutations: {
     UPDATE_PRENOM (state, payload) {
@@ -17,9 +17,14 @@ const store = new Vuex.Store({
     }
   },
   actions: {
-    updateNomPrenom (context, payload) {
-      context.commit('UPDATE_PRENOM', payload)
-      context.commit('UPDATE_NOM', payload)
+    /**
+     *
+     * @param context
+     * @param payload object {'nom' : '', 'prenom': ''}
+     */
+    updateUser (context, userObject) {
+      context.commit('UPDATE_PRENOM', userObject)
+      context.commit('UPDATE_NOM', userObject)
     }
   }
 })

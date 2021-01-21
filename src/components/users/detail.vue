@@ -1,8 +1,9 @@
 <template>
   <div class="userdetail">
     <h3>userdetail</h3>
-    msg : {{msg}}
-    saucisse : {{saucisse}}
+    <br/>route param : {{ $route.params.user_id }}
+    <br/>msg : {{msg}}
+    <br/>saucisse : {{saucisse}}
   </div>
 </template>
 
@@ -22,7 +23,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-  h3 {
-    color: red;
-  }
+h3 {
+  color: red;
+}
 </style>

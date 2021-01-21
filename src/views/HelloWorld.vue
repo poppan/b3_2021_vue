@@ -9,11 +9,11 @@
     VUEX mapState: {{ prenom }} - {{ nom }}
     <hr/>
     Change prenom avec methode locale qui appelle l'action
-    <button @click="callStoreActionChangePrenom({prenom:'poney', nom: 'club'})"> change prenom </button>
+    <button @click="callStoreActionChangeUser({prenom:'poney', nom: 'club'})"> change prenom </button>
 
     <hr/>
     Change prenom avec mapActions
-    <button @click="updateNomPrenom({prenom:'poney', nom: 'club'})"> change prenom </button>
+    <button @click="updateUser({prenom:'poney', nom: 'club'})"> change prenom </button>
 
     <hr/>
 
@@ -77,11 +77,11 @@ export default {
   },
   methods : {
     ...mapActions([
-        'updateNomPrenom'
+        'updateUser'
     ]),
 
-    callStoreActionChangePrenom(payload){
-      this.$store.dispatch('updateNomPrenom', payload)
+    callStoreActionChangeUser(payload){
+      this.$store.dispatch('updateUser', payload)
     }
   }
 
