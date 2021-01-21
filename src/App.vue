@@ -27,6 +27,8 @@
 
             <b-nav-item to="/users">Userprout Vuex</b-nav-item>
 
+            <b-nav-item @click="testLocalstorage">Herisson plat ?</b-nav-item>
+
 
             <b-nav-item href="#">Lien a l'ancienne</b-nav-item>
             <b-nav-item href="#" disabled>Lien desactivé</b-nav-item>
@@ -138,10 +140,15 @@ export default {
       'nom'
     ]),
   },
+
   methods: {
     ...mapActions([
+      'retrieveUser',
       'updateUser'
     ]),
+    testLocalstorage(){
+      localStorage.setItem('herisson', 'plat')
+    },
     // ou on peut faire un appel a l'action mais bof...
     callStoreActionChangeUser(payload){
       this.$store.dispatch('updateUser', payload)
@@ -194,6 +201,13 @@ export default {
           })
         });
     }
+  },
+  // beforeCreate(){
+  //   this.$store.dispatch('retrieveUser')
+  //   // ici, this.retrieveUser() ne marcherai pas car le mapActions n'est pas encore effectif avant la creation du composant
+  // },
+  created () {
+    this.retrieveUser()
   }
 }
 </script>

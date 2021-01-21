@@ -9,14 +9,30 @@ const store = new Vuex.Store({
     nom: "mon nom"
   },
   mutations: {
+    RETRIEVE_PRENOM (state){
+      if(localStorage.getItem('prenom')) {
+        state.prenom = localStorage.getItem('prenom')
+      }
+    },
     UPDATE_PRENOM (state, payload) {
+      localStorage.setItem('prenom', payload.prenom)
       return state.prenom = payload.prenom
     },
+    RETRIEVE_NOM (state){
+      if(localStorage.getItem('nom')) {
+        state.nom = localStorage.getItem('nom')
+      }
+    },
     UPDATE_NOM (state, payload) {
+      localStorage.setItem('nom', payload.nom)
       return state.nom = payload.nom
     }
   },
   actions: {
+    retrieveUser (context) {
+      context.commit('RETRIEVE_PRENOM')
+      context.commit('RETRIEVE_NOM')
+    },
     /**
      *
      * @param context
