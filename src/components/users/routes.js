@@ -79,6 +79,7 @@ export default [
         name: 'UserDetail',
         components: {
           default: () => import(/* webpackChunkName: "users" */ '@/components/users/detail.vue'),
+          secondaire: () => import(/* webpackChunkName: "users" */ '@/components/users/detail.vue'),
         },
         // transfert de props a la view, /!\ il faut que la view les autorise
         props: {
@@ -90,7 +91,7 @@ export default [
         path: 'action/:action',  // ensuite emprunter l'[A7] = Marseille
         name: 'UserDetailAction',
         components: {
-          default: () => import(/* webpackChunkName: "home" */ '@/views/User/UserDetailAction.vue'),
+          default: () => import(/* webpackChunkName: "home" */ '@/components/users/detail_action.vue'),
         },
         props: {
           saucisse: 'marseille'
