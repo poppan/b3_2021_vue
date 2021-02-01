@@ -7,8 +7,8 @@
         <h1>{{ $route.params.msg }}</h1>
         <h1>{{ $route.params.saucisse }}</h1>
 
-        <button class="btn btn-primary" @click="$router.push('User')">User button</button>
-        <button class="btn btn-primary" v-on:click="$router.push('User')">User button</button>
+        <button class="btn btn-primary" @click="$router.push('/users')">User button</button>
+        <button class="btn btn-primary" v-on:click="$router.push('/users')">User button</button>
 
 
         <UserEditUpdate monAttribut="YOLO">

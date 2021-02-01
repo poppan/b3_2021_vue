@@ -6,18 +6,22 @@
       - msg : {{ msg }}
       - saucisse : {{ saucisse }}
     </pre>
-    <p>dans le source il y a un petit code CSS en SCSS </p>
 
-    <p>en dessous y'a un router-view "default" sans nom bord rouge</p>
-    <p>puis y'a un router-view "secondaire" bord cyan</p>
+
+    <p>en dessous y'a un router-view "default" sans nom bord rouge on defini ce qu'on met dedans dans les routes </p>
+
     <main class="container" style="border: solid red 2px">
       <router-view/>
     </main>
+
+    <p>puis y'a un router-view "secondaire" bord cyan on defini ce qu'on met dedans dans les routes </p>
 
     <aside style="border: solid darkcyan 2px">
       <router-view name="secondaire"/>
     </aside>
 
+
+    <p>dans le source il y a un petit code CSS en SCSS </p>
   </div>
 </template>
 
